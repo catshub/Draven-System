@@ -30,6 +30,7 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-closing-tag-location': 0,
     'import/first': 1,
+    'import/no-extraneous-dependencies': 0,
     'jsx-a11y/anchor-is-valid': 0,
     // "spaced-comment": "warn",
     // "no-debugger": "warn",
