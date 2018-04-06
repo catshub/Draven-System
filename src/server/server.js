@@ -1,5 +1,5 @@
 const Http = require('http');
-const Api = require('./api');
+const Api = require('./common/api');
 const iconv = require('iconv-lite');
 const QueryString = require('querystring');
 const chalk = require('chalk');

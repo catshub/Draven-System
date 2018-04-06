@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npm run dev",
+    "start": "npm run dev & npm run server",
     "dev": "webpack-dev-server --config ./webpack/dev.conf.js",
     "server": "set NODE_ENV=dev&& node ./src/server/server.js",
     "build": "set NODE_ENV=production&& webpack --config ./webpack/prod.conf.js",
     "precommit": "lint-staged",
-    "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular -r 0",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular -r 0"
   },
   "author": "XiongQi",
   "license": "ISC",

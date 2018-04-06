@@ -19,11 +19,12 @@ const devWebpackConf = {
   },
   plugins: [
     new UglifyJsPlugin({
-      // uglifyOptions: {
-      //   compress: {
-      //     warnings: false
-      //   }
-      // }
+      uglifyOptions: {
+        output: {
+          beautify: false,
+        },
+      },
+      parallel: true,
     }),
     new ExtractTextPlugin('static/css/[name].css'),
     new HtmlWebpackPlugin({

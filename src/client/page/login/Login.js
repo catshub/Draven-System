@@ -1,14 +1,12 @@
 import React from 'react';
-import { observer } from 'mobx-react';
 import { Button, Form, Input, message, Row } from 'antd';
 import ReactDOM from 'react-dom';
 
 @Form.create()
-@observer
 class Login extends React.Component {
   handleSubmit = e => {
-    const { getFieldValue: GV } = this.props.form;
     e.preventDefault();
+    const { getFieldValue: GV } = this.props.form;
     this.props.form.validateFields(err => {
       if (!err) {
         fetch('http://localhost:8101/loginAction', {
@@ -20,15 +18,15 @@ class Login extends React.Component {
           .then(response => {
             if (response !== '登录失败') {
               const resData = typeof response === 'object' ? response : JSON.parse(response);
-              this.props.route.user.cookie = resData.cookie;
-              this.props.route.user.name = resData.name;
-              this.props.route.user.zjh = GV('zjh');
-              this.props.route.user.mm = GV('mm');
+              // this.props.route.user.cookie = resData.cookie;
+              // this.props.route.user.name = resData.name;
+              // this.props.route.user.zjh = GV('zjh');
+              // this.props.route.user.mm = GV('mm');
               // document.cookie = this.resData.cookie;
-              console.warn(resData);
+              // console.warn(resData);
               if (resData.cookie) {
                 message.success(`登录成功,欢迎${resData.name}`);
-                // hashHistory.push('/takecourse');
+                window.location.href = `${window.location.origin}/xiongqi-xq`;
               } else message.warning('登录失败');
             } else message.warning(response);
           })
