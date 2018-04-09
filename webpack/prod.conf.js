@@ -26,16 +26,16 @@ const devWebpackConf = {
       },
       parallel: true,
     }),
-    new ExtractTextPlugin('static/css/[name].css'),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'src/common/static/index.html',
-      favicon: 'src/common/static/images/x-logo.png',
-      inject: true,
-      minify: {},
-      hash: true,
-      cache: true,
-    }),
+    // new ExtractTextPlugin('static/css/[name].css'),
+    // new HtmlWebpackPlugin({
+    //   filename: 'index.html',
+    //   template: 'src/common/static/index.html',
+    //   favicon: 'src/common/static/images/x-logo.png',
+    //   inject: true,
+    //   minify: {},
+    //   hash: true,
+    //   cache: true,
+    // }),
   ],
 };
 module.exports = Merge(baseWebpackConf, devWebpackConf);

@@ -3,6 +3,7 @@ const Api = require('./common/api');
 const iconv = require('iconv-lite');
 const QueryString = require('querystring');
 const chalk = require('chalk');
+const config = require('./common/config');
 
 const Log = message => console.log(`[${new Date().toLocaleString()}] `, message);
 const Tip = message => console.log(chalk.yellow.bold(`[${new Date().toLocaleString()}] `, message));
@@ -60,6 +61,7 @@ function loginAction(userData, option, res, origin) {
       if (scuData.includes('学分制综合教务')) {
         const cookie = response.headers['set-cookie'][0].split(';')[0];
         getName(cookie).then(name => {
+          // cookie += `;name=${name}`;
           res.setHeader('Set-Cookie', cookie);
           res.writeHead(200, {
             'Access-Control-Allow-Origin': origin,
@@ -187,5 +189,6 @@ Http.createServer((req, res) => {
       res.end('none');
       break;
   }
-}).listen(8101);
-Log('server ing');
+}).listen(config.serverPort, () => {
+  Log(`server on ${config.serverHost}:${config.serverPort}`);
+});

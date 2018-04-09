@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npm run dev & npm run server",
+    "start": "npm run dev",
     "dev": "webpack-dev-server --config ./webpack/dev.conf.js",
     "server": "set NODE_ENV=dev&& node ./src/server/server.js",
     "build": "set NODE_ENV=production&& webpack --config ./webpack/prod.conf.js",
@@ -44,6 +44,7 @@
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "compression-webpack-plugin": "^1.1.11",
     "conventional-changelog-cli": "^1.3.16",
     "css-loader": "^0.28.10",
     "eslint": "^4.18.2",

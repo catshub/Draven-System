@@ -7,9 +7,10 @@ class Login extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const { getFieldValue: GV } = this.props.form;
+    const { protocol, hostname } = window.location;
     this.props.form.validateFields(err => {
       if (!err) {
-        fetch('http://localhost:8101/loginAction', {
+        fetch(`${protocol}//${hostname}:8101/loginAction`, {
           method: 'post',
           body: JSON.stringify({ zjh: GV('zjh'), mm: GV('mm') }),
           credentials: 'include',
@@ -26,7 +27,9 @@ class Login extends React.Component {
               // console.warn(resData);
               if (resData.cookie) {
                 message.success(`登录成功,欢迎${resData.name}`);
-                window.location.href = `${window.location.origin}/xiongqi-xq`;
+                sessionStorage.setItem('zjh', Number(GV('zjh')));
+                sessionStorage.setItem('name', resData.name);
+                window.location.href = `${window.location.origin}/draven`;
               } else message.warning('登录失败');
             } else message.warning(response);
           })
