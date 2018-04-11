@@ -32,6 +32,7 @@ module.exports = {
     'import/first': 1,
     'import/no-extraneous-dependencies': 0,
     'jsx-a11y/anchor-is-valid': 0,
+    'jsx-a11y/accessible-emoji': 0,
     // "spaced-comment": "warn",
     // "no-debugger": "warn",
     // "semi": ["warn", "always"],

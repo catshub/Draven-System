@@ -56,9 +56,8 @@ class Login extends React.Component {
             })(<Input type="password" />)}
           </Form.Item>
           <Form.Item style={{ textAlign: 'center' }}>
-            <Button htmlType="submit">Login</Button>
+            <Button htmlType="submit">登录</Button>
           </Form.Item>
-          <div style={{ textAlign: 'center' }}>注: 需要使用课程号,请先自行登录教务处记下所选课的课程号和课序号.</div>
         </Form>
       </Row>
     );
