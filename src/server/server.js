@@ -164,7 +164,8 @@ function XkAction(queryData, option, Cookie = 'none', res, origin) {
 
 // server
 Http.createServer((req, res) => {
-  const origin = Api.CrossOrigin.test(req.headers.origin) ? req.headers.origin : 'http://draven-system.xhuyq.me';
+  // const origin = Api.CrossOrigin.test(req.headers.origin) ? req.headers.origin : 'http://draven-system.xhuyq.me';
+  const origin = process.env.NODE_ENV === 'prod' ? 'http://draven-system.xhuyq.me' : req.headers.origin;
   let data = '';
   switch (req.url) {
     case '/loginAction':
