@@ -32,6 +32,13 @@ const api = {
     path: '/xkAction.do?actionType=-1',
     method: 'GET',
     headers,
+  },
+  GradeAction: {
+    host: 'g.scuplus.cn',
+    path: '/gpa',
+    method: 'POST',
+    // port: 443,
+    headers
   }
 };
 module.exports = api;

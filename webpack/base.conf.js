@@ -6,11 +6,12 @@ const Webpack = require('webpack');
 
 module.exports = {
   entry: {
-    index: Path.resolve(__dirname, '../src/client/index.js'),
-    login: Path.resolve(__dirname, '../src/client/page/login/Login.js'),
-    grade: Path.resolve(__dirname, '../src/client/page/grade/grade.js'),
-    classroom: Path.resolve(__dirname, '../src/client/page/classroom/classroom.js'),
-    course: Path.resolve(__dirname, '../src/client/page/course/course.js'),
+    index: Path.resolve(__dirname, '../src/client/index.jsx'),
+    login: Path.resolve(__dirname, '../src/client/page/login/Login.jsx'),
+    grade: Path.resolve(__dirname, '../src/client/page/grade/Grade.jsx'),
+    classroom: Path.resolve(__dirname, '../src/client/page/classroom/Classroom.jsx'),
+    course: Path.resolve(__dirname, '../src/client/page/course/Course.jsx'),
+    takecourse: Path.resolve(__dirname, '../src/client/page/takecourse/Takecourse.jsx'),
     vendor: ['react', 'react-dom'],
   },
   output: {
@@ -90,6 +91,16 @@ module.exports = {
       template: 'src/common/static/index.html',
       favicon: 'src/common/static/images/x-logo.png',
       chunks: ['vendor', 'course'],
+      inject: true,
+      minify: {},
+      hash: false,
+      cache: true,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'takecourse/index.html',
+      template: 'src/common/static/index.html',
+      favicon: 'src/common/static/images/x-logo.png',
+      chunks: ['vendor', 'takecourse'],
       inject: true,
       minify: {},
       hash: false,

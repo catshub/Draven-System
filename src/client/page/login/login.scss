@@ -1,0 +1,14 @@
+.item {
+  @media screen and (min-width: 575px) {
+    display: flex;
+    justify-content: center;
+    .ant-form-item-label {
+      float: left;
+    }
+  }
+}
+.form {
+  margin: 10px;
+  width: 600px;
+  text-align: center;
+}

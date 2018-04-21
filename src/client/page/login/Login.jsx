@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, Input, message, Row } from 'antd';
 import ReactDOM from 'react-dom';
+import './login.scss';
 
 @Form.create()
 class Login extends React.Component {
@@ -19,15 +20,10 @@ class Login extends React.Component {
           .then(response => {
             if (response !== '登录失败') {
               const resData = typeof response === 'object' ? response : JSON.parse(response);
-              // this.props.route.user.cookie = resData.cookie;
-              // this.props.route.user.name = resData.name;
-              // this.props.route.user.zjh = GV('zjh');
-              // this.props.route.user.mm = GV('mm');
-              // document.cookie = this.resData.cookie;
-              // console.warn(resData);
               if (resData.cookie) {
                 message.success(`登录成功,欢迎${resData.name}`);
                 sessionStorage.setItem('zjh', Number(GV('zjh')));
+                sessionStorage.setItem('mm', GV('mm'));
                 sessionStorage.setItem('name', resData.name);
                 window.location.href = `${window.location.origin}/draven`;
               } else message.warning('登录失败');
@@ -39,23 +35,21 @@ class Login extends React.Component {
   };
   render() {
     const { getFieldDecorator } = this.props.form;
-    const itemLayout = { labelCol: { span: 6 }, wrapperCol: { span: 10 }, style: { textAlign: 'center' } };
+    const itemLayout = { /* labelCol: { xs: 2 }, */ wrapperCol: { span: 12 }, className: 'item' };
     return (
       <Row type="flex" justify="center">
-        <Form onSubmit={this.handleSubmit} style={{ margin: '10px', width: '800px' }}>
+        <Form onSubmit={this.handleSubmit} className="form">
           <Form.Item label="学号" {...itemLayout}>
             {getFieldDecorator('zjh', {
-              // initialValue: 2014141462275,
               rules: [{ required: true, message: '请输入学号！' }],
-            })(<Input />)}
+            })(<Input placeholder="请输入学号" />)}
           </Form.Item>
           <Form.Item label="密码" {...itemLayout}>
             {getFieldDecorator('mm', {
-              // initialValue: 'x9601157cd',
               rules: [{ required: true, message: '请输入密码！' }],
-            })(<Input type="password" />)}
+            })(<Input type="password" placeholder="请输入密码" />)}
           </Form.Item>
-          <Form.Item style={{ textAlign: 'center' }}>
+          <Form.Item >
             <Button htmlType="submit">登录</Button>
           </Form.Item>
         </Form>
@@ -63,6 +57,5 @@ class Login extends React.Component {
     );
   }
 }
-// const user = new User();
 const main = document.getElementById('main');
 ReactDOM.render(<Login />, main);
