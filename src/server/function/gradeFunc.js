@@ -1,8 +1,8 @@
 const Log = require('../common/log');
 const Https = require('https');
 // get grade
-function gradeAction(userData, option, res, origin) {
-  option.path += userData.type;
+function gradeFunc(userData, option, res, origin) {
+  option.path = `/gpa${userData.type}`;
   const scuReq = Https.request(option, response => {
     let scuData = '';
     response.on('data', d => {
@@ -19,4 +19,4 @@ function gradeAction(userData, option, res, origin) {
   scuReq.end(`uid=${userData.uid}&password=${userData.password}`);
 }
 
-module.exports = gradeAction;
+module.exports = gradeFunc;

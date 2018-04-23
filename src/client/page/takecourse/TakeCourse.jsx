@@ -42,7 +42,7 @@ export default class TakeCourse extends React.Component {
         console.log(JSON.stringify(data));
         const loading = message.loading('...', 0);
         const { protocol, hostname } = window.location;
-        fetch(`${protocol}//${hostname}:8101/xkAction`, {
+        fetch(`${protocol}//${hostname}:${sessionStorage.port || 9000}/xkAction`, {
           method: 'post',
           body: JSON.stringify(data),
           credentials: 'include',

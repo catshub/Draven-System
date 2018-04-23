@@ -9,7 +9,7 @@ class Course extends React.Component {
   };
   componentDidMount() {
     const { protocol, hostname } = window.location;
-    fetch(`${protocol}//${hostname}:8101/course`, {
+    fetch(`${protocol}//${hostname}:${sessionStorage.port || 9000}/course`, {
       method: 'post',
       body: '',
       credentials: 'include',

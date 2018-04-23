@@ -1,39 +1,37 @@
 const Http = require('http');
-const Api = require('./common/api');
+const API = require('./common/api');
 const config = require('./common/config');
-const gradeAction = require('./function/gradeFunc');
-const loginAction = require('./function/loginFunc');
-const xkAction = require('./function/xkFunc');
+const gradeFunc = require('./function/gradeFunc');
+const loginFunc = require('./function/loginFunc');
+const xkFunc = require('./function/xkFunc');
+const classroomFunc = require('./function/classroomFunc');
 
-// server
+// Server
+const origin = process.env.NODE_ENV === 'prod' ? 'http://draven-system.xhuyq.me' : 'http://localhost:8080';
 Http.createServer((req, res) => {
-  const origin = process.env.NODE_ENV === 'prod' ? 'http://draven-system.xhuyq.me' : req.headers.origin;
   let data = '';
-  switch (req.url) {
-    case '/loginAction':
-      req.on('data', d => {
-        data += d;
-      });
-      req.on('end', () => loginAction(JSON.parse(data), Api.LoginAction, res, origin, Api.sTop));
-      break;
-    case '/xkAction':
-      req.on('data', d => {
-        data += d;
-      });
-      req.on('end', () => {
-        xkAction(JSON.parse(data), Api.XkAction, req.headers.cookie, res, origin, Api.XkFirst);
-      });
-      break;
-    case '/grade':
-      req.on('data', d => {
-        data += d;
-      });
-      req.on('end', () => gradeAction(JSON.parse(data), Api.GradeAction, res, origin));
-      break;
-    default:
-      res.end('none');
-      break;
-  }
+  req.on('data', d => {
+    data += d;
+  });
+  req.on('end', () => {
+    switch (req.url) {
+      case '/loginAction':
+        loginFunc(JSON.parse(data), API.LoginAction, res, origin, API.sTop);
+        break;
+      case '/xkAction':
+        xkFunc(JSON.parse(data), API.XkAction, req.headers.cookie, res, origin, API.XkFirst);
+        break;
+      case '/grade':
+        gradeFunc(JSON.parse(data), API.GradeAction, res, origin);
+        break;
+      case '/classroom':
+        classroomFunc(JSON.parse(data), API.CrAction, res, origin);
+        break;
+      default:
+        res.end('none');
+        break;
+    }
+  });
 }).listen(config.serverPort, () => {
-  console.log(`server on ${config.serverHost}:${config.serverPort}`);
+  console.log(`Server on ${config.serverHost}:${config.serverPort}`);
 });

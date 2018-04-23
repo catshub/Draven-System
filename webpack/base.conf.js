@@ -12,7 +12,7 @@ module.exports = {
     classroom: Path.resolve(__dirname, '../src/client/page/classroom/Classroom.jsx'),
     course: Path.resolve(__dirname, '../src/client/page/course/Course.jsx'),
     takecourse: Path.resolve(__dirname, '../src/client/page/takecourse/Takecourse.jsx'),
-    vendor: ['react', 'react-dom'],
+    // vendor: ['react', 'react-dom'],
   },
   output: {
     filename: 'static/js/[name]-[hash].js', // 打包文件名
@@ -30,27 +30,27 @@ module.exports = {
         test: /\.scss/,
         exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader', // 编译后用来提取的loaader
+          fallback: 'style-loader', // 编译后用来提取的loader
           use: [{ loader: 'css-loader', options: { minimize: true } }, 'sass-loader'], // 用来编译文件的loader
         }),
       },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader', // 编译后用来提取的loaader
+          fallback: 'style-loader', // 编译后用来提取的loader
           use: { loader: 'css-loader', options: { minimize: true } }, // 用来编译文件的loader
         }),
       },
     ],
   },
   plugins: [
-    new Webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
+    new Webpack.optimize.CommonsChunkPlugin('common'),
     new ExtractTextPlugin('static/css/[name].css'),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/common/static/index.html',
       favicon: 'src/common/static/images/x-logo.png',
-      chunks: ['vendor', 'index'],
+      chunks: ['common', 'index'],
       inject: true,
       minify: {},
       hash: false,
@@ -60,7 +60,7 @@ module.exports = {
       filename: 'login/index.html',
       template: 'src/common/static/index.html',
       favicon: 'src/common/static/images/x-logo.png',
-      chunks: ['vendor', 'login'],
+      chunks: ['common', 'login'],
       inject: true,
       minify: {},
       hash: false,
@@ -70,7 +70,7 @@ module.exports = {
       filename: 'grade/index.html',
       template: 'src/common/static/index.html',
       favicon: 'src/common/static/images/x-logo.png',
-      chunks: ['vendor', 'grade'],
+      chunks: ['common', 'grade'],
       inject: true,
       minify: {},
       hash: false,
@@ -80,7 +80,7 @@ module.exports = {
       filename: 'classroom/index.html',
       template: 'src/common/static/index.html',
       favicon: 'src/common/static/images/x-logo.png',
-      chunks: ['vendor', 'classroom'],
+      chunks: ['common', 'classroom'],
       inject: true,
       minify: {},
       hash: false,
@@ -90,7 +90,7 @@ module.exports = {
       filename: 'course/index.html',
       template: 'src/common/static/index.html',
       favicon: 'src/common/static/images/x-logo.png',
-      chunks: ['vendor', 'course'],
+      chunks: ['common', 'course'],
       inject: true,
       minify: {},
       hash: false,
@@ -100,7 +100,7 @@ module.exports = {
       filename: 'takecourse/index.html',
       template: 'src/common/static/index.html',
       favicon: 'src/common/static/images/x-logo.png',
-      chunks: ['vendor', 'takecourse'],
+      chunks: ['common', 'takecourse'],
       inject: true,
       minify: {},
       hash: false,

@@ -15,7 +15,7 @@ module.exports = {
   parser: 'babel-eslint',
   extends: ['airbnb'], // "plugins": ["react","import","jsx-a11y"],
   rules: {
-    'no-param-reassign': 0,
+    // 'no-param-reassign': 0,
     'no-plusplus': 0,
     'arrow-parens': [1, 'as-needed'],
     'comma-dangle': [1, 'only-multiline'],

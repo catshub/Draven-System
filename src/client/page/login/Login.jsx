@@ -5,13 +5,16 @@ import './login.scss';
 
 @Form.create()
 class Login extends React.Component {
+  componentWillMount() {
+    sessionStorage.setItem('port', 9000);
+  }
   handleSubmit = e => {
     e.preventDefault();
     const { getFieldValue: GV } = this.props.form;
     const { protocol, hostname } = window.location;
     this.props.form.validateFields(err => {
       if (!err) {
-        fetch(`${protocol}//${hostname}:8101/loginAction`, {
+        fetch(`${protocol}//${hostname}:${sessionStorage.port || 9000}/loginAction`, {
           method: 'post',
           body: JSON.stringify({ zjh: GV('zjh'), mm: GV('mm') }),
           credentials: 'include',

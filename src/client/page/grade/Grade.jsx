@@ -19,7 +19,7 @@ class Grade extends React.Component {
     const { protocol, hostname } = window.location;
     const uid = sessionStorage.getItem('zjh');
     const password = sessionStorage.getItem('mm');
-    fetch(`${protocol}//${hostname}:8101/grade`, {
+    fetch(`${protocol}//${hostname}:${sessionStorage.port || 9000}/grade`, {
       method: 'post',
       body: JSON.stringify({ uid, password, type }),
       // credentials: 'include',

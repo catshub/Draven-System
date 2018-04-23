@@ -44,7 +44,7 @@ function getName(Cookie, option) {
 }
 
 // login
-function loginAction(userData, option, res, origin, nameApi) {
+function loginFunc(userData, option, res, origin, nameApi) {
   const scuReq = Http.request(option, response => {
     let scuData = '';
     response.on('data', d => {
@@ -77,4 +77,4 @@ function loginAction(userData, option, res, origin, nameApi) {
   scuReq.end(QueryString.stringify(userData));
 }
 
-module.exports = loginAction;
+module.exports = loginFunc;

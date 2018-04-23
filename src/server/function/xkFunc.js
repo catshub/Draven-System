@@ -26,7 +26,7 @@ function takeCourse(query, Cookie, option, resolve, name, zjh, count) {
   cloudReq.end(query);
 }
 // 选课
-function XkAction(queryData, option, Cookie = 'none', res, origin, xkFirst) {
+function XkFunc(queryData, option, Cookie = 'none', res, origin, xkFirst) {
   const stopReg = />((\S+上课时间冲突)|(你已经选择了课程[^<]+)|(选课成功[^<]+))/;
   const errorReg = /(对不起、非选课阶段不允许选课)|(请您登录后再使用)|(500 Servlet Exception)/;
   const continueReg = /(没有课余量)/;
@@ -81,4 +81,4 @@ function XkAction(queryData, option, Cookie = 'none', res, origin, xkFirst) {
   reqFirst.end();
 }
 
-module.exports = XkAction;
+module.exports = XkFunc;
