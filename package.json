@@ -4,9 +4,9 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
-    "dev": "webpack-dev-server --config ./webpack/dev.conf.js",
+    "dev": "webpack-dev-server --config ./webpack/dev.conf.js --hide-modules",
     "server": "set NODE_ENV=dev&& node ./src/server/server.js",
-    "build": "set NODE_ENV=prod&& webpack --config ./webpack/prod.conf.js",
+    "build": "set NODE_ENV=prod&& webpack --config ./webpack/prod.conf.js --hide-modules",
     "precommit": "lint-staged",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular -r 0"
   },

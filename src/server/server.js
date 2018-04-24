@@ -7,8 +7,8 @@ const xkFunc = require('./function/xkFunc');
 const classroomFunc = require('./function/classroomFunc');
 
 // Server
-const origin = process.env.NODE_ENV === 'prod' ? 'http://draven-system.xhuyq.me' : 'http://localhost:8080';
 Http.createServer((req, res) => {
+  const origin = process.env.NODE_ENV === 'prod' ? 'http://draven-system.xhuyq.me' : req.headers.origin;
   let data = '';
   req.on('data', d => {
     data += d;
