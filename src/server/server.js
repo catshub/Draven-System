@@ -5,6 +5,7 @@ const gradeFunc = require('./function/gradeFunc');
 const loginFunc = require('./function/loginFunc');
 const xkFunc = require('./function/xkFunc');
 const classroomFunc = require('./function/classroomFunc');
+const courseFunc = require('./function/courseFunc');
 
 // Server
 Http.createServer((req, res) => {
@@ -24,11 +25,14 @@ Http.createServer((req, res) => {
       case '/grade':
         gradeFunc(JSON.parse(data), API.GradeAction, res, origin);
         break;
+      case '/course':
+        courseFunc(req.headers.cookie, API.CourseAction, res, origin);
+        break;
       case '/classroom':
         classroomFunc(JSON.parse(data), API.CrAction, res, origin);
         break;
       default:
-        res.end('none');
+        res.end(JSON.stringify({ res: 'none' }));
         break;
     }
   });

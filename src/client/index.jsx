@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Button, Form, Input, message, Row, Col } from 'antd';
+import { Layout, Button, Row, Col } from 'antd';
 import ReactDOM from 'react-dom';
 import './index.scss';
 
@@ -14,7 +14,7 @@ class Home extends React.Component {
   };
   render() {
     const {
-      Header, Footer, Sider, Content
+      Header, Content
     } = Layout;
     const zjh = sessionStorage.getItem('zjh');
     const name = sessionStorage.getItem('name');

@@ -1,0 +1,16 @@
+.container {
+  @media screen and (min-width: 768px) {
+    padding: 10px;
+  }
+  .ant-table-tbody>tr>td, {
+    padding: 5px;
+  }
+  .ant-table table{
+    text-align: center;
+  }
+}
+.timeCol {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}

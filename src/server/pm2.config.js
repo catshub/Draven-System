@@ -5,7 +5,7 @@ module.exports = {
       script: `${__dirname}/server.js`,
       watch: true,
       env: {
-        NODE_ENV: 'prod',
+        NODE_ENV: 'dev',
       },
     },
   ],

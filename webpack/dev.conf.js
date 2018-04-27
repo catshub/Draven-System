@@ -9,6 +9,7 @@ const devWebpackConf = {
     // inline: true,
     port: 8080,
     // open: true,
+    stats: { modules: false },
     hot: true,
     watchOptions: {
       aggregateTimeout: 1000,

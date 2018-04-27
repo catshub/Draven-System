@@ -27,6 +27,12 @@ const API = {
     path: '/xkAction.do?actionType=-1',
     headers,
   },
+  CourseAction: {
+    method: 'GET',
+    host,
+    path: '/xkAction.do?actionType=6',
+    headers,
+  },
   GradeAction: {
     method: 'POST',
     host: 'g.scuplus.cn',

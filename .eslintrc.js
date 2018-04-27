@@ -16,11 +16,12 @@ module.exports = {
   extends: ['airbnb'], // "plugins": ["react","import","jsx-a11y"],
   rules: {
     // 'no-param-reassign': 0,
+    'newline-per-chained-call': [1, { ignoreChainWithDepth: 3 }], // 链式调用的深度
     'no-plusplus': 0,
     'arrow-parens': [1, 'as-needed'],
     'comma-dangle': [1, 'only-multiline'],
     'linebreak-style': [0, 'windows'],
-    'max-len': [1, 160, 2, { ignoreComments: true }],
+    'max-len': [1, 120, 2, { ignoreComments: true }],
     'no-console': 0,
     'no-unused-vars': 1,
     quotes: [1, 'single'],

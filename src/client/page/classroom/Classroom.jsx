@@ -1,5 +1,5 @@
 import React from 'react';
-import { notification, Button, Form, Input, message, Row, Col, Select, Modal } from 'antd';
+import { notification, Button, message, Row, Col, Select } from 'antd';
 import ReactDOM from 'react-dom';
 import { fetchJSON } from '../../utils/fetchFunc';
 import './classroom.scss';
@@ -53,7 +53,7 @@ class Classroom extends React.Component {
   };
   render() {
     const {
-      xldata, roomdata, modalData, editData
+      xldata, roomdata, editData
     } = this.state;
     const jxlArr = this.formatJxlConfig(this.state.jxlConfig);
     console.log(jxlArr);
