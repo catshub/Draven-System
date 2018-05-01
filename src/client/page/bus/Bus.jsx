@@ -8,14 +8,14 @@ import './bus.scss';
 class Course extends React.Component {
   state = {
     bus: [],
+    message: [],
   };
   componentWillMount() {
     const that = this;
-    console.log(ApiBase);
-    fetchJSON(`${ApiBase}/bus`).then(res => that.setState({ bus: res }));
+    fetchJSON(`${ApiBase}/bus`).then(res => that.setState({ bus: res.data, message: res.message }));
   }
   render() {
-    const { bus } = this.state;
+    const { bus, message } = this.state;
     const columnsConf = [
       {
         title: (bus[0] && bus[0].busCol1) || '',
@@ -64,6 +64,9 @@ class Course extends React.Component {
     return (
       <div className="container">
         <Table {...tableConf} />
+        <div className="message">
+          {message.map(x => <p>{x}</p>)}
+        </div>
       </div>
     );
   }

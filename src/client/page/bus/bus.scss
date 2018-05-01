@@ -1,6 +1,5 @@
 .container {
   padding: 10px;
-  text-align: center;
   table {
     text-align: center;
     th {
@@ -10,5 +9,11 @@
     td {
       padding: 5px;
     }
+  }
+}
+.message {
+  margin-top: 20px;
+  & p:nth-last-child(2){
+    text-align: center;
   }
 }
