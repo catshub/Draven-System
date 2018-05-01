@@ -44,6 +44,12 @@ const API = {
     host: 'cir.scu.edu.cn',
     path: '/cir',
     headers
+  },
+  BusAction: {
+    method: 'GET',
+    host: 'jwc.scu.edu.cn',
+    path: '/scdx/skb.html',
+    // headers
   }
 };
 module.exports = API;

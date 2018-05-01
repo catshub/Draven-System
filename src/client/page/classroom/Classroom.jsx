@@ -2,18 +2,19 @@ import React from 'react';
 import { notification, Button, message, Row, Col, Select } from 'antd';
 import ReactDOM from 'react-dom';
 import { fetchJSON } from '../../utils/fetchFunc';
+import { ApiBase } from '../../utils/common';
 import './classroom.scss';
 
 class Classroom extends React.Component {
   state = {
-    ApiBase: `${window.location.protocol}//${window.location.hostname}:${sessionStorage.port || 9000}`,
+    // ApiBase: `${window.location.protocol}//${window.location.hostname}:${sessionStorage.port || 9000}`,
     jxlConfig: [],
     xldata: null,
     roomdata: null,
     editData: null,
   };
   componentWillMount() {
-    const { ApiBase } = this.state;
+    // const { ApiBase } = this.state;
     const that = this;
     const loaded = message.loading('获取教室信息...', 0);
     fetchJSON(`${ApiBase}/classroom`, { method: 'POST', body: JSON.stringify({ type: '/jxlConfig', query: '' }) }).then(jxlConfig => {
@@ -28,7 +29,7 @@ class Classroom extends React.Component {
   };
 
   handleJxlClick = location => {
-    const { ApiBase, jxlConfig } = this.state;
+    const { jxlConfig } = this.state;
     const that = this;
     const loaded = message.loading('获取教室信息....', 0);
     fetchJSON(`${ApiBase}/classroom`, { method: 'POST', body: JSON.stringify({ type: '/XLRoomData', query: `jxlname=${location}` }) }).then(res => {

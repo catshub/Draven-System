@@ -6,7 +6,7 @@ import './grade.scss';
 
 class Grade extends React.Component {
   state = {
-    ApiBase: `${window.location.protocol}//${window.location.hostname}:${sessionStorage.port || 9000}`,
+    // ApiBase: `${window.location.protocol}//${window.location.hostname}:${sessionStorage.port || 9000}`,
     grade: {},
     gradeAll: {},
     show: 1,
@@ -23,7 +23,7 @@ class Grade extends React.Component {
     const uid = sessionStorage.getItem('zjh');
     const password = sessionStorage.getItem('mm');
     const that = this;
-    fetchJSON(`${this.state.ApiBase}/grade`, {
+    fetchJSON(`${ApiBase}/grade`, {
       method: 'POST',
       body: JSON.stringify({ uid, password, type }),
       // credentials: 'include',

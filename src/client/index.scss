@@ -1,5 +1,5 @@
 // $a: 0.7;
-$red: #a60a0b;
+$red: #f13b38;
 $red-deep: #a60a0b;
 // $red-deep: rgba(166, 10, 11, $a);
 $blue: #578fe4;
@@ -11,6 +11,16 @@ $purple-deep: #ae46ee;
 $pink: #f0514e;
 $pink-deep: #fc3632;
 // $pink-deep: rgba(240, 81, 78, $a);
+$orange: #eca403;
+$orange-deep: #ffc33c;
+$green: #1cc769;
+$green-deep: #2ede7d;
+$cyan: #1cb3cc;
+$cyan-deep: #42c8de;
+
+.ant-layout {
+  background-color: white;
+}
 .header {
   background-color: $red;
   color: white;
@@ -36,8 +46,12 @@ $pink-deep: #fc3632;
 
 /* button-index */
 @mixin button-base($color, $color-deep) {
-  width: 100px;
-  height: 50px;
+  @media screen and (max-width: 767px) {
+    width: 100px;
+    height: 50px;
+  }
+  width: 80%;
+  height: 80px;
   font-size: 1.3em;
   background-color: $color;
   border: none;
@@ -60,4 +74,13 @@ $pink-deep: #fc3632;
 }
 .button-course {
   @include button-base($purple, $purple-deep);
+}
+.button-takecourse {
+  @include button-base($orange, $orange-deep);
+}
+.button-bus {
+  @include button-base($green, $green-deep);
+}
+.button-calendar {
+  @include button-base($cyan, $cyan-deep);
 }

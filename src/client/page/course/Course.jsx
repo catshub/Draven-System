@@ -2,11 +2,12 @@ import React from 'react';
 import { Table } from 'antd';
 import ReactDOM from 'react-dom';
 import { fetchJSON } from '../../utils/fetchFunc';
+import { ApiBase } from '../../utils/common';
 import './course.scss';
 
 class Course extends React.Component {
   state = {
-    ApiBase: `${window.location.protocol}//${window.location.hostname}:${sessionStorage.port || 9000}`,
+    // ApiBase: `${window.location.protocol}//${window.location.hostname}:${sessionStorage.port || 9000}`,
     course: [],
   };
   componentWillMount() {
@@ -16,7 +17,7 @@ class Course extends React.Component {
   }
   componentDidMount() {
     const that = this;
-    fetchJSON(`${this.state.ApiBase}/course`, {
+    fetchJSON(`${ApiBase}/course`, {
       method: 'POST',
       body: '',
       credentials: 'include',

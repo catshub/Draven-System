@@ -6,10 +6,12 @@ const loginFunc = require('./function/loginFunc');
 const xkFunc = require('./function/xkFunc');
 const classroomFunc = require('./function/classroomFunc');
 const courseFunc = require('./function/courseFunc');
+const busFunc = require('./function/busFunc');
 
 // Server
 Http.createServer((req, res) => {
-  const origin = process.env.NODE_ENV === 'prod' ? 'http://draven-system.xhuyq.me' : req.headers.origin;
+  const origin =
+    process.env.NODE_ENV === 'prod' ? 'http://draven-system.xhuyq.me' : req.headers.origin || 'http://localhost';
   let data = '';
   req.on('data', d => {
     data += d;
@@ -30,6 +32,9 @@ Http.createServer((req, res) => {
         break;
       case '/classroom':
         classroomFunc(JSON.parse(data), API.CrAction, res, origin);
+        break;
+      case '/bus':
+        busFunc(API.BusAction, res, origin);
         break;
       default:
         res.end(JSON.stringify({ res: 'none' }));
