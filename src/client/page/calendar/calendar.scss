@@ -1,0 +1,10 @@
+.container {
+  text-align: center;
+}
+.table {
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -7,6 +7,7 @@ const xkFunc = require('./function/xkFunc');
 const classroomFunc = require('./function/classroomFunc');
 const courseFunc = require('./function/courseFunc');
 const busFunc = require('./function/busFunc');
+const calendarFunc = require('./function/calendarFunc');
 
 // Server
 Http.createServer((req, res) => {
@@ -35,6 +36,9 @@ Http.createServer((req, res) => {
         break;
       case '/bus':
         busFunc(API.BusAction, res, origin);
+        break;
+      case '/calendar':
+        calendarFunc(API.CalendarAction, res, origin);
         break;
       default:
         res.end(JSON.stringify({ res: 'none' }));

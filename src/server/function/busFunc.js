@@ -1,6 +1,5 @@
 const Log = require('../common/log');
 const Http = require('http');
-const iconv = require('iconv-lite');
 const cheerio = require('cheerio');
 
 function formatBus(scuData) {
@@ -18,7 +17,17 @@ function formatBus(scuData) {
       });
     data[i] = temp;
   });
-  return data;
+  const p = $('.MsoNormalTable')
+    .parent()
+    .next()
+    .find('p');
+  const message = [];
+  p.each((j, el) => {
+    message.push(cheerio(el)
+      .text()
+      .trim());
+  });
+  return { data, message };
 }
 
 // classroom

@@ -50,6 +50,12 @@ const API = {
     host: 'jwc.scu.edu.cn',
     path: '/scdx/skb.html',
     // headers
-  }
+  },
+  CalendarAction: {
+    method: 'GET',
+    host: 'jwc.scu.edu.cn',
+    path: '/scdx/xl.html',
+    // headers
+  },
 };
 module.exports = API;
