@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu, Row, Col, Table } from 'antd';
 import ReactDOM from 'react-dom';
 import { fetchJSON } from '../../utils/fetchFunc';
+import { ApiBase } from '../../utils/common';
 import './grade.scss';
 
 class Grade extends React.Component {
