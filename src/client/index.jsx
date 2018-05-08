@@ -1,5 +1,6 @@
+import { Button, Col, Divider, Layout, Row } from 'antd';
+import Header from 'components/Header';
 import React from 'react';
-import { Layout, Button, Row, Col, Divider } from 'antd';
 import ReactDOM from 'react-dom';
 import './index.scss';
 
@@ -13,17 +14,16 @@ class Home extends React.Component {
     window.location.href = `${window.location.origin}/draven/${target}`;
   };
   render() {
-    const { Header, Content } = Layout;
-    const zjh = sessionStorage.getItem('zjh');
-    const name = sessionStorage.getItem('name');
+    const { Content } = Layout;
+    const headerConf = {
+      title: sessionStorage.name,
+      subTitle: sessionStorage.zjh,
+    };
     const rowConf = { type: 'flex', justify: 'space-around', style: { padding: '10px 0' } };
     const colConf = { span: 7, className: 'col' };
     return (
       <Layout>
-        <Header className="header">
-          <strong>{name}</strong>
-          <span>{zjh}</span>
-        </Header>
+        <Header {...headerConf} />
         <Content>
           <Row {...rowConf}>
             <Divider>常用功能</Divider>

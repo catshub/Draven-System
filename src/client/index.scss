@@ -21,20 +21,6 @@ $cyan-deep: #42c8de;
 .ant-layout {
   background-color: white;
 }
-.header {
-  background-color: $red;
-  color: white;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 20px;
-  strong {
-    font-size: 1.6em;
-  }
-  span {
-    font-size: 1.2em;
-    margin-left: 10px;
-  }
-}
 .col {
   display: flex;
   justify-content: center;

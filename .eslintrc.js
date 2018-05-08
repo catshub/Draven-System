@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
   env: {
     browser: true,
@@ -5,6 +6,13 @@ module.exports = {
     node: true,
   },
   globals: {},
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [['components', path.resolve('src/client/components')], ['img', path.resolve('src/common/static/images')]],
+      },
+    },
+  },
   parserOptions: {
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
@@ -33,6 +41,8 @@ module.exports = {
     'react/jsx-closing-tag-location': 0,
     'import/first': 1,
     'import/no-extraneous-dependencies': 0,
+    // 'import/no-unresolved': [2, { ignore: ['^components/', ['^img/']] }],
+    // 'import/extensions': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'jsx-a11y/accessible-emoji': 0,
     // "spaced-comment": "warn",

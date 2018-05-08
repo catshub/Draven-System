@@ -1,6 +1,7 @@
+import { Button, Form, Input, Row, message } from 'antd';
 import React from 'react';
-import { Button, Form, Input, message, Row } from 'antd';
 import ReactDOM from 'react-dom';
+import png from 'img/scu.png';
 import './login.scss';
 
 @Form.create()
@@ -42,6 +43,7 @@ class Login extends React.Component {
     return (
       <Row type="flex" justify="center">
         <Form onSubmit={this.handleSubmit} className="form">
+          <img src={png} alt="" />
           <Form.Item label="学号" {...itemLayout}>
             {getFieldDecorator('zjh', {
               rules: [{ required: true, message: '请输入学号！' }],
@@ -52,7 +54,7 @@ class Login extends React.Component {
               rules: [{ required: true, message: '请输入密码！' }],
             })(<Input type="password" placeholder="请输入密码" />)}
           </Form.Item>
-          <Form.Item >
+          <Form.Item>
             <Button htmlType="submit">登录</Button>
           </Form.Item>
         </Form>

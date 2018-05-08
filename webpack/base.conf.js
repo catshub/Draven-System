@@ -21,6 +21,13 @@ module.exports = {
     path: Path.resolve(__dirname, '../public/draven'),
     publicPath: '/draven',
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      components: Path.resolve(__dirname, '../src/client/components'),
+      img: Path.resolve(__dirname, '../src/common/static/images'),
+    },
+  },
   module: {
     rules: [
       {
@@ -33,21 +40,33 @@ module.exports = {
         exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader', // 编译后用来提取的loader
-          use: [{ loader: 'css-loader', options: { minimize: true } }, 'sass-loader'], // 用来编译文件的loader
+          use: [{ loader: 'css-loader', options: { minimize: process.env.NODE_ENV === 'prod' } }, 'sass-loader'], // 用来编译文件的loader
         }),
       },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader', // 编译后用来提取的loader
-          use: { loader: 'css-loader', options: { minimize: true } }, // 用来编译文件的loader
+          use: { loader: 'css-loader', options: { minimize: process.env.NODE_ENV === 'prod' } }, // 用来编译文件的loader
         }),
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: '/static/images',
+            },
+          },
+        ],
       },
     ],
   },
   plugins: [
     new Webpack.optimize.CommonsChunkPlugin('common'),
-    new ExtractTextPlugin('static/css/[name].css'),
+    new ExtractTextPlugin('static/css/[name]-[contenthash].css'),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/common/static/index.html',
@@ -128,8 +147,5 @@ module.exports = {
       hash: false,
       cache: true,
     }),
-    // new CompressionPlugin({
-    //   test: /\.(js|css)/
-    // })
   ],
 };

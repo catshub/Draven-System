@@ -10,14 +10,14 @@ const devWebpackConf = {
     port: 8080,
     // open: true,
     stats: { modules: false },
-    hot: true,
+    // hot: true,
     watchOptions: {
       aggregateTimeout: 1000,
       ignored: /node_modules/,
     },
   },
   plugins: [
-    new Webpack.HotModuleReplacementPlugin(),
+    // new Webpack.HotModuleReplacementPlugin(),
     // new ExtractTextPlugin('static/css/[name].css'),
     // new HtmlWebpackPlugin({
     //   filename: 'index.html',

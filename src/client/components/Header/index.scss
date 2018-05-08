@@ -1,0 +1,15 @@
+$red: #f13b38;
+.header {
+  background-color: $red;
+  color: white;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  strong {
+    font-size: 1.6em;
+  }
+  span {
+    font-size: 1.2em;
+    margin-left: 10px;
+  }
+}
