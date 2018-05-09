@@ -6,16 +6,37 @@
       float: left;
     }
   }
+  @media screen and (max-width: 767px) {
+    .ant-form-item-label {
+      display: inline-block;
+      width: auto;
+      margin: 0 10px;
+      padding: 0;
+      line-height: 39px;
+    }
+    .ant-form-item-control-wrapper {
+      float: none;
+      display: inline-block;
+      width: auto;
+    }
+  }
 }
 .form {
-  margin: 10px;
+  margin: 30px 15px 0 15px;
+  @media screen {
+    margin-top: 20px;
+  }
   width: 600px;
   text-align: center;
   border: 1px solid #e8b2ad;
-  padding-top: 24px;
-  box-shadow: 5px 5px 5px;
+  padding: 24px 20px 0 20px;
+  box-shadow: 5px 5px 5px #e4c1be;
   background-color: #ece3e3;
+  border-radius: 100px 10px;
   img {
     padding-bottom: 30px;
   }
+}
+body {
+  background-color: #ecebe0;
 }
