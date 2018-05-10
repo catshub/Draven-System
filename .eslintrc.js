@@ -9,7 +9,12 @@ module.exports = {
   settings: {
     'import/resolver': {
       alias: {
-        map: [['components', path.resolve('src/client/components')], ['img', path.resolve('src/common/static/images')]],
+        map: [
+          ['components', path.resolve('src/client/components')],
+          ['img', path.resolve('src/common/static/images')],
+          ['utils', path.resolve('src/client/utils')],
+        ],
+        extensions: ['.jsx', '.js'],
       },
     },
   },

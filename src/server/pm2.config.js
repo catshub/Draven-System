@@ -3,7 +3,7 @@ module.exports = {
     {
       name: 'draven',
       script: `${__dirname}/server.js`,
-      watch: true,
+      watch: false,
       env: {
         NODE_ENV: 'dev',
       },

@@ -1,4 +1,4 @@
-// const Webpack = require('webpack');
+const Webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Merge = require('webpack-merge');
 const baseWebpackConf = require('./base.conf.js');
@@ -13,16 +13,11 @@ const devWebpackConf = {
       },
       parallel: true,
     }),
-    // new ExtractTextPlugin('static/css/[name].css'),
-    // new HtmlWebpackPlugin({
-    //   filename: 'index.html',
-    //   template: 'src/common/static/index.html',
-    //   favicon: 'src/common/static/images/x-logo.png',
-    //   inject: true,
-    //   minify: {},
-    //   hash: true,
-    //   cache: true,
-    // }),
+    new Webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"',
+      },
+    }),
   ],
 };
 module.exports = Merge(baseWebpackConf, devWebpackConf);
