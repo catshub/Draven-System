@@ -1,6 +1,117 @@
-.row {
-  @media screen and (min-width: 768px) {
-    padding: 0 20px;
+@mixin rowBase($color, $color-light) {
+  @media screen and (max-width: 767px) {
+    margin: 20px 10px;
   }
-  margin-top: 20px;
+  margin: 40px 20px;
+  box-shadow: 0 5px 5px $color;
+  border-radius: 0 0 20px 20px;
+  border: 1px solid $color;
+  thead > tr > th {
+    color: white;
+    background-color: $color;
+    &.ant-table-column-sort {
+      background-color: $color;
+    }
+    .anticon {
+      color: white;
+      &:hover,
+      &:focus {
+        color: white;
+      }
+    }
+  }
+  tbody > tr:hover > td {
+    background-color: $color-light;
+  }
+  .term {
+    background-color: $color;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.4em;
+    font-style: italic;
+    z-index: 10;
+  }
+  .result {
+    div {
+      background-color: $color;
+      padding: 0 10px 10px;
+    }
+    color: white;
+    border-bottom: 1px dashed #e8e8e8;
+    text-align: center;
+  }
+}
+$red: rgb(230, 140, 96);
+$orange: rgb(232, 185, 97);
+$yellow: rgb(195, 191, 61);
+$green: rgb(146, 210, 153);
+$cyan: rgb(121, 216, 211);
+$blue: rgb(132, 178, 247);
+$purple: rgb(172, 140, 236);
+$pink: rgb(222, 135, 195);
+$opacity: 0.2;
+$red-light: rgba(230, 140, 96, $opacity);
+$orange-light: rgba(232, 185, 97, $opacity);
+$yellow-light: rgba(195, 191, 61, $opacity);
+$green-light: rgba(146, 210, 153, $opacity);
+$cyan-light: rgba(121, 216, 211, $opacity);
+$blue-light: rgba(132, 178, 247, $opacity);
+$purple-light: rgba(172, 140, 236, $opacity);
+$pink-light: rgba(222, 135, 195, $opacity);
+.row0 {
+  @include rowBase($blue, $blue-light);
+}
+.row1 {
+  @include rowBase($purple, $purple-light);
+}
+.row2 {
+  @include rowBase($cyan, $cyan-light);
+}
+.row3 {
+  @include rowBase($green, $green-light);
+}
+.row4 {
+  @include rowBase($pink, $pink-light);
+}
+.row5 {
+  @include rowBase($orange, $orange-light);
+}
+.row6 {
+  @include rowBase($red, $red-light);
+}
+.row7 {
+  @include rowBase($yellow, $yellow-light);
+}
+
+table > tbody tr:last-of-type > td {
+  border: none;
+}
+.selector {
+  width: 80%;
+  .ant-select-selection-selected-value {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .ant-select-selection {
+    border-radius: 20px;
+    // background-color: #eaf2f3;
+  }
+}
+ul.ant-select-dropdown-menu {
+  text-align: center;
+}
+.table-wrapper table tr {
+  th,
+  td {
+    height: 50px;
+    text-align: center;
+    padding: 1px 2px;
+    @media screen and (max-width: 767px) {
+    }
+  }
+}
+.ant-table-column-sorter,
+i.anticon-filter[title='Filter menu'] {
+  margin-left: 0 !important;
 }
