@@ -1,16 +1,147 @@
 .container {
-  @media screen and (min-width: 768px) {
-    padding: 10px;
+  padding: 0;
+  .ant-table-tbody > tr {
+    & > td,
+    & > th {
+      padding: 1px;
+    }
   }
-  .ant-table-tbody>tr>td, {
-    padding: 5px;
-  }
-  .ant-table table{
-    text-align: center;
+  .ant-table table {
+    border-top: none;
+    border-left: none;
+    thead > tr > th {
+      line-height: 1;
+      padding: 5px;
+      height: 30px;
+      text-align: center;
+      @media screen and (max-width: 767px) {
+        padding: 2px;
+      }
+    }
+
+    tbody > tr > td {
+      text-align: center;
+      &.section {
+        border-bottom: 1px dotted #e8e8e8;
+        @media screen and (max-width: 767px) {
+          height: 60px;
+        }
+        height: 40px;
+      }
+    }
+    tbody > tr {
+      &:nth-child(4),
+      &:nth-child(9),
+      &:last-child {
+        td.section {
+          border-bottom: 1px solid #e8e8e8;
+        }
+      }
+    }
   }
 }
-.timeCol {
-  @media screen and (max-width: 767px) {
+#fixedTable {
+  position: fixed;
+  visibility: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  thead > tr > th {
+    border: none;
+    // border-right: 1px solid #e8e8e8;
+    // border-bottom: 1px solid #e8e8e8;
+    line-height: 1;
+    font-weight: 500;
+    padding: 5px;
+    height: 30px;
+    text-align: center;
+    background-color: #fafafa;
+    @media screen and (max-width: 767px) {
+      padding: 2px;
+    }
+    &:first-child {
+      width: (100%) / 15;
+    }
+    width: (200%) / 15;
+  }
+}
+$red: rgb(230, 140, 96);
+$orange: rgb(232, 185, 97);
+$yellow: rgb(195, 191, 61);
+$green: rgb(146, 210, 153);
+$cyan: rgb(121, 216, 211);
+$blue: rgb(132, 178, 247);
+$purple: rgb(172, 140, 236);
+$pink: rgb(222, 135, 195);
+$opacity: 0.5;
+$red-light: rgba(230, 140, 96, $opacity);
+$orange-light: rgba(232, 185, 97, $opacity);
+$yellow-light: rgba(195, 191, 61, $opacity);
+$green-light: rgba(146, 210, 153, $opacity);
+$cyan-light: rgba(121, 216, 211, $opacity);
+$blue-light: rgba(132, 178, 247, $opacity);
+$purple-light: rgba(172, 140, 236, $opacity);
+$pink-light: rgba(222, 135, 195, $opacity);
+
+@mixin courseBase($color-light, $color) {
+  background-color: $color-light;
+  color: white;
+  border-bottom: none;
+  &:hover {
+    background-color: $color;
+    cursor: pointer;
+  }
+  & > div:first-child {
+    @media screen and (max-width: 767px) {
+      font-size: 0.8em;
+    }
+    margin-bottom: 5px;
+  }
+  & > div:last-child {
+    @media screen and (max-width: 767px) {
+      font-size: 0.7em;
+    }
+  }
+}
+.container tbody > tr > td {
+  &.course0 {
+    @include courseBase($red, $red-light);
+  }
+  &.course1 {
+    @include courseBase($orange, $orange-light);
+  }
+  &.course2 {
+    @include courseBase($yellow, $yellow-light);
+  }
+  &.course3 {
+    @include courseBase($green, $green-light);
+  }
+  &.course4 {
+    @include courseBase($cyan, $cyan-light);
+  }
+  &.course5 {
+    @include courseBase($blue, $blue-light);
+  }
+  &.course6 {
+    @include courseBase($pink, $pink-light);
+  }
+  &.course7 {
+    @include courseBase($purple, $purple-light);
+  }
+}
+.ant-table-tbody > tr:hover > td {
+  background-color: inherit;
+}
+.ant-message {
+  i.anticon-info-circle {
     display: none;
+  }
+  span {
+    text-align: left;
+    p:last-child {
+      margin: 0;
+    }
   }
 }
