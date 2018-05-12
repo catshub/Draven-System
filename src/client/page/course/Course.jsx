@@ -42,9 +42,12 @@ class Course extends React.Component {
   };
   handleFixedTable = () => {
     const table = document.getElementById('fixedTable');
+    const width = document.documentElement.clientWidth < 768 ? 40 : 50;
     window.onscroll = () => {
-      if (window.pageYOffset > 50) table.style.visibility = 'visible';
-      else table.style.visibility = 'hidden';
+      if (table) {
+        if (window.pageYOffset > width && table.style.visibility !== 'visible') table.style.visibility = 'visible';
+        else if (window.pageYOffset <= width && table.style.visibility !== 'hidden') table.style.visibility = 'hidden';
+      }
     };
   };
   handleCourseClick = text => {
@@ -111,9 +114,8 @@ class Course extends React.Component {
       rowKey: (record, index) => index,
     };
     const headerConf = {
-      title: '课程表',
-      color: '#9652bf',
-      home: true,
+      left: '课程表',
+      color: '#de87c3',
     };
     return (
       <div>

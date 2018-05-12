@@ -11,11 +11,13 @@
     border-left: none;
     thead > tr > th {
       line-height: 1;
-      padding: 5px;
+      padding: 1px;
       height: 30px;
       text-align: center;
-      @media screen and (max-width: 767px) {
-        padding: 2px;
+      &.section {
+        @media screen and (max-width: 767px) {
+          font-size: 0.8em;
+        }
       }
     }
 
@@ -49,17 +51,20 @@
   z-index: 10;
   width: 100%;
   thead > tr > th {
-    border: none;
-    // border-right: 1px solid #e8e8e8;
+    border-right: 1px solid rgba(255, 255, 255, 0);
     // border-bottom: 1px solid #e8e8e8;
     line-height: 1;
     font-weight: 500;
-    padding: 5px;
+    padding: 1px;
     height: 30px;
     text-align: center;
     background-color: #fafafa;
-    @media screen and (max-width: 767px) {
-      padding: 2px;
+    &:first-child {
+      @media screen and (max-width: 767px) {
+        border: none;
+        font-size: 0.7em;
+        padding: 0 0 0 1px;
+      }
     }
     &:first-child {
       width: (100%) / 15;
