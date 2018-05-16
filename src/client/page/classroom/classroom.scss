@@ -1,26 +1,35 @@
+$red: rgb(230, 140, 96);
+$orange: rgb(232, 185, 97);
+$yellow: rgb(195, 191, 61);
+$green: rgb(146, 210, 153);
+$cyan: rgb(121, 216, 211);
+$blue: rgb(132, 178, 247);
+$purple: rgb(172, 140, 236);
+$pink: rgb(222, 135, 195);
+$opacity: 0.1;
+$red-light: rgba(230, 140, 96, $opacity);
+$orange-light: rgba(232, 185, 97, $opacity);
+$yellow-light: rgba(195, 191, 61, $opacity);
+$green-light: rgba(146, 210, 153, $opacity);
+$cyan-light: rgba(121, 216, 211, $opacity);
+$blue-light: rgba(132, 178, 247, $opacity);
+$purple-light: rgba(172, 140, 236, $opacity);
+$pink-light: rgba(222, 135, 195, $opacity);
 .jxlContainer {
   @media screen and (min-width: 768px) {
     width: 80vw;
     margin-left: 10vw;
   }
-  padding: 10px;
-  h3 {
+  padding: 0 10px;
+  div.xqname {
+    @media screen and (min-width: 768px) {
+      font-size: 1.6em;
+    }
     text-align: center;
+    font-size: 1.2em;
+    padding: 0 0 5px 0;
+    margin-bottom: 10px;
   }
-}
-.jxlRow {
-  margin-bottom: 20px;
-}
-.jxlButton {
-  width: 100%;
-  margin-bottom: 10px;
-  span {
-    display: block;
-    overflow: hidden;
-  }
-}
-.xqCol {
-  text-align: center;
 }
 
 .classRow {
@@ -28,6 +37,9 @@
   height: 32px;
   line-height: 32px;
   text-align: center;
+}
+.classHeader {
+  background-color: #f7efef;
 }
 .classCol {
   display: flex;
@@ -58,4 +70,117 @@
 }
 .classButton1 {
   @include classButton(rgba(207, 19, 34, 0.8));
+}
+.ant-message {
+  i.anticon-info-circle {
+    display: none;
+  }
+  span {
+    text-align: left;
+    p:last-child {
+      margin: 0;
+    }
+  }
+}
+$opacity2: 0.2;
+$red-light2: rgba(230, 140, 96, $opacity2);
+$orange-light2: rgba(232, 185, 97, $opacity2);
+$yellow-light2: rgba(195, 191, 61, $opacity2);
+$green-light2: rgba(146, 210, 153, $opacity2);
+$cyan-light2: rgba(121, 216, 211, $opacity2);
+$blue-light2: rgba(132, 178, 247, $opacity2);
+$purple-light2: rgba(172, 140, 236, $opacity2);
+$pink-light2: rgba(222, 135, 195, $opacity2);
+.selector {
+  width: 80%;
+  .ant-select-selection-selected-value {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .ant-select-selection {
+    border-radius: 5px;
+    // background-color: #eaf2f3;
+  }
+}
+@mixin groupBase($color, $color-light) {
+  background-color: $color-light;
+  .ant-select-dropdown-menu-item:hover,
+  .ant-select-dropdown-menu-item-active,
+  .ant-select-dropdown-menu-item-selected {
+    background-color: $color-light;
+  }
+}
+.dropdown {
+  ul.ant-select-dropdown-menu {
+    text-align: center;
+    .ant-select-dropdown-menu-item-group-title {
+      text-align: left;
+    }
+    .ant-select-dropdown-menu-item-group-list > .ant-select-dropdown-menu-item {
+      padding: 5px;
+    }
+
+    & > li.ant-select-dropdown-menu-item-group:first-child {
+      @include groupBase($red, $red-light2);
+    }
+    & > li.ant-select-dropdown-menu-item-group:nth-child(2) {
+      @include groupBase($blue, $blue-light2);
+    }
+    & > li.ant-select-dropdown-menu-item-group:nth-child(3) {
+      @include groupBase($purple, $purple-light2);
+    }
+  }
+}
+.fixedSelector {
+  position: fixed;
+  width: 100%;
+  padding: 0 10px;
+  text-align: center;
+  left: 0;
+  line-height: 1.5;
+  // visibility: hidden;
+  top: 1px;
+  z-index: 10;
+  .selector {
+    width: 40%;
+  }
+}
+
+@mixin xq($color, $color-light) {
+  border: 1px dotted $color;
+  padding: 5px 10px 0;
+  border-radius: 5px;
+  box-shadow: 0px 0 20px 1px $color;
+  margin: 20px 0;
+  background-color: $color-light;
+  * {
+    color: $color;
+  }
+  button.jxlButton {
+    width: 100%;
+    margin-bottom: 10px;
+    border-color: $color-light;
+    padding: 0 2px;
+    background-color: $color-light;
+    @media screen and(min-width:768px) {
+      height: 40px;
+      font-size: 1.2em;
+    }
+    span {
+      display: block;
+      overflow: hidden;
+    }
+  }
+  .xqname {
+    border-bottom: 1px dotted $color;
+  }
+}
+.xq3 {
+  @include xq($red, $red-light);
+}
+.xq1 {
+  @include xq($pink, $pink-light);
+}
+.xq2 {
+  @include xq($purple, $purple-light);
 }
