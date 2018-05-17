@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Row, Col, Table, message, Select } from 'antd';
+import { Row, Col, Table, message, Select } from 'antd';
 import ReactDOM from 'react-dom';
 import Header from 'components/Header';
 import { fetchJSON } from 'utils/fetchFunc';
@@ -189,10 +189,8 @@ class Grade extends React.Component {
     });
     // const color = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'purple', 'grey'];
     const headerConf = {
-      title: '成绩查询',
-      subTitle: '所有成绩',
+      left: '成绩查询',
       color: '#578fe4',
-      home: true,
       middle: (
         <Select defaultValue="grade" showArrow={false} className="selector" onChange={obj => this.handleSelected(obj)}>
           <Select.Option value="grade">本学期成绩</Select.Option>

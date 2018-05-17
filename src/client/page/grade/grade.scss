@@ -2,7 +2,7 @@
   @media screen and (max-width: 767px) {
     margin: 20px 10px;
   }
-  margin: 40px 20px;
+  margin: 20px 20px;
   box-shadow: 0 5px 5px $color;
   border-radius: 0 0 20px 20px;
   border: 1px solid $color;
@@ -29,7 +29,7 @@
     text-align: center;
     padding: 10px;
     font-size: 1.4em;
-    font-style: italic;
+    // font-style: italic;
     z-index: 10;
   }
   .result {
@@ -37,6 +37,7 @@
       background-color: $color;
       padding: 0 10px 10px;
     }
+    font-style: italic;
     color: white;
     border-bottom: 1px dashed #e8e8e8;
     text-align: center;
@@ -94,7 +95,7 @@ table > tbody tr:last-of-type > td {
     padding: 0 10px;
   }
   .ant-select-selection {
-    border-radius: 20px;
+    border-radius: 5px;
     // background-color: #eaf2f3;
   }
 }
