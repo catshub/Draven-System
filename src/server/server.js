@@ -38,7 +38,7 @@ Http.createServer((req, res) => {
         busFunc(API.BusAction, res, origin);
         break;
       case '/calendar':
-        calendarFunc(API.CalendarAction, res, origin);
+        calendarFunc(data, API.CalendarAction, res, origin);
         break;
       default:
         res.end(JSON.stringify({ res: 'none' }));

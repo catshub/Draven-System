@@ -21,13 +21,13 @@ function formatBus(scuData) {
     .parent()
     .next()
     .find('p');
-  const message = [];
+  const tips = [];
   p.each((j, el) => {
-    message.push(cheerio(el)
+    tips.push(cheerio(el)
       .text()
       .trim());
   });
-  return { data, message };
+  return { data, tips };
 }
 
 // classroom
