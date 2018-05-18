@@ -8,8 +8,8 @@ $blue-deep: #196ae4;
 $purple: #9652bf;
 $purple-deep: #ae46ee;
 // $purple-deep: rgba(150, 82, 191, $a);
-$pink: #f0514e;
-$pink-deep: #fc3632;
+$pink: #de87c3;
+$pink-deep: #d481ba;
 // $pink-deep: rgba(240, 81, 78, $a);
 $orange: #eca403;
 $orange-deep: #ffc33c;
@@ -28,11 +28,17 @@ $cyan-deep: #42c8de;
   * {
     color: white;
   }
+  a {
+    display: contents;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
 }
 
 /* button-index */
 @mixin button-base($color, $color-deep) {
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 575px) {
     width: 100px;
     height: 50px;
   }
@@ -51,22 +57,42 @@ $cyan-deep: #42c8de;
     display: inline-block;
     transform: translateX(-40%);
   }
+  &[disabled] {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: #cabcbc;
+    }
+  }
 }
 .button-grade {
   @include button-base($blue, $blue-deep);
 }
 .button-classroom {
-  @include button-base($pink, $pink-deep);
+  @include button-base($cyan, $cyan-deep);
 }
 .button-course {
-  @include button-base($purple, $purple-deep);
+  @include button-base($pink, $pink-deep);
 }
 .button-takecourse {
-  @include button-base($orange, $orange-deep);
+  @include button-base($purple, $purple-deep);
 }
 .button-bus {
   @include button-base($green, $green-deep);
 }
 .button-calendar {
-  @include button-base($cyan, $cyan-deep);
+  @include button-base($orange, $orange-deep);
+}
+
+.header .name {
+  font-size: 1.6em;
+  @media screen and (max-width: 767px) {
+    font-size: 1.4em;
+  }
+}
+.functionrow {
+  @media screen and (max-width: 767px) {
+    padding: 0 0 10px 0;
+  }
 }
