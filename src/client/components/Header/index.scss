@@ -4,12 +4,29 @@ $red: #f13b38;
   color: white;
   height: 50px;
   line-height: 50px;
-  padding: 0 20px;
-  strong {
-    font-size: 1.6em;
+  @media screen and (max-width: 767px) {
+    height: 40px;
+    line-height: 40px;
   }
-  span {
+  padding: 0 10px;
+  // @media screen and(max-width: 767px) {
+  //   padding: 0 2px;
+  // }
+  // .ant-row {
+  //   height: 50px;
+  // }
+  .left {
     font-size: 1.2em;
-    margin-left: 10px;
+  }
+  .middle {
+    text-align: center;
+  }
+  .right {
+    text-align: right;
+    a {
+      color: white;
+      text-decoration: none;
+      margin: 0;
+    }
   }
 }
