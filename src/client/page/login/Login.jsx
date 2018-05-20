@@ -1,7 +1,9 @@
 import { Button, Form, Input, Row, message } from 'antd';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import png from 'img/scu.png';
+import { fetchText } from 'utils/fetchFunc';
+import { ApiBase } from 'utils/common';
+import scupng from 'img/scu.png';
 import './login.scss';
 
 @Form.create()
@@ -12,15 +14,13 @@ class Login extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const { getFieldValue: GV } = this.props.form;
-    const { protocol, hostname } = window.location;
     this.props.form.validateFields(err => {
       if (!err) {
-        fetch(`${protocol}//${hostname}:${sessionStorage.port || 9000}/loginAction`, {
+        fetchText(`${ApiBase}/loginAction`, {
           method: 'post',
           body: JSON.stringify({ zjh: GV('zjh'), mm: GV('mm') }),
           credentials: 'include',
         })
-          .then(res => res.text())
           .then(response => {
             if (response !== '登录失败') {
               const resData = typeof response === 'object' ? response : JSON.parse(response);
@@ -43,7 +43,7 @@ class Login extends React.Component {
     return (
       <Row type="flex" justify="center">
         <Form onSubmit={this.handleSubmit} className="form">
-          <img src={png} alt="" />
+          <img src={scupng} alt="" />
           <Form.Item label="学号" {...itemLayout}>
             {getFieldDecorator('zjh', {
               rules: [{ required: true, message: '请输入学号！' }],

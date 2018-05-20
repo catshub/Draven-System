@@ -22,17 +22,17 @@
   }
 }
 .form {
-  margin: 30px 15px 0 15px;
-  @media screen {
+  margin: 10vh 15px 0 15px;
+  @media screen and (max-width: 767px){
     margin-top: 20px;
   }
   width: 600px;
   text-align: center;
-  border: 1px solid #e8b2ad;
+  // border: 1px solid #e8b2ad;
   padding: 24px 20px 0 20px;
   box-shadow: 5px 5px 5px #e4c1be;
   background-color: #ece3e3;
-  border-radius: 100px 10px;
+  border-radius: 10px 60px;
   img {
     padding-bottom: 30px;
   }
