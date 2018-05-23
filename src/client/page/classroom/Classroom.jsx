@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, message, Row, Col, Select } from 'antd';
 import ReactDOM from 'react-dom';
 import Header from 'components/Header';
+import 'babel-polyfill';
 import { fetchJSON } from 'utils/fetchFunc';
 import { ApiBase } from 'utils/common';
 import './classroom.scss';

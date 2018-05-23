@@ -2,8 +2,8 @@ import React from 'react';
 import { Table, message } from 'antd';
 import ReactDOM from 'react-dom';
 import Header from 'components/Header';
-import { fetchJSON } from '../../utils/fetchFunc';
-import { ApiBase } from '../../utils/common';
+import { fetchJSON } from 'utils/fetchFunc';
+import { ApiBase } from 'utils/common';
 import './course.scss';
 
 const Frag = React.Fragment;

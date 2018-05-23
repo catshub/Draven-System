@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Button, Form, Input, message, Row } from 'antd';
+import { fetchText } from 'utils/fetchFunc';
+import { ApiBase } from 'utils/common';
 import Header from 'components/Header';
 import scupng from 'img/scu.png';
 import './takecourse.scss';
@@ -44,13 +46,11 @@ export default class TakeCourse extends React.Component {
         };
         console.log(JSON.stringify(data));
         const loading = message.loading('...', 0);
-        const { protocol, hostname } = window.location;
-        fetch(`${protocol}//${hostname}:${sessionStorage.port || 9000}/xkAction`, {
+        fetchText(`${ApiBase}/xkAction`, {
           method: 'post',
           body: JSON.stringify(data),
           credentials: 'include',
         })
-          .then(res => res.text())
           .then(response => {
             this.resData = response;
             loading();
