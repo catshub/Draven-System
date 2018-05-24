@@ -1,10 +1,93 @@
 .container {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.table {
-  text-align: center;
+.tableWrapper {
   @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: center;
+    width: 50%;
+    padding: 10px;
+    min-width: 500px;
+    table {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    padding: 10px 1px;
+    table {
+      width: 100%;
+      tbody > tr:nth-child(3) {
+        td:last-child {
+          width: 20% !important;
+        }
+      }
+    }
+    table tbody td {
+      width: auto !important;
+      padding: 5px 3px !important;
+      // border-right: 1px solid !important;
+      // border-bottom: 1px solid !important;
+      // border-top: 1px !important;
+      // border-left: 1px !important;
+    }
+
+    .table2017 {
+      tbody > tr:nth-child(3) {
+        td:nth-child(2) p {
+          b:nth-child(odd) {
+            display: none;
+          }
+          b:nth-child(even) {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+table thead {
+  text-align: center;
+  background: #f3c55d;
+  color: white;
+  font-size: 1.2em;
+  line-height: 32px;
+  border: 1px solid black;
+}
+p {
+  margin-right: 0 !important;
+  margin: 0 !important;
+  text-indent: 0 !important;
+}
+.selector {
+  * {
+    text-align: center;
+  }
+  width: 80%;
+  .ant-select-selection-selected-value {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .ant-select-selection {
+    border-radius: 5px;
+    // background-color: #eaf2f3;
+  }
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    .ant-select-selection-selected-value {
+      padding: 0;
+    }
+    .ant-select-selection__rendered {
+      margin: 0 1px;
+    }
+  }
+}
+div.ant-select-dropdown {
+  text-align: center;
+  @media screen and (max-width: 767px) {
+    left: 0 !important;
+    right: 0;
+    margin: auto;
+    width: fit-content;
   }
 }

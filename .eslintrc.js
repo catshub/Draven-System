@@ -29,6 +29,7 @@ module.exports = {
   extends: ['airbnb'], // "plugins": ["react","import","jsx-a11y"],
   rules: {
     // 'no-param-reassign': 0,
+    "no-mixed-operators": 0,
     'newline-per-chained-call': [1, { ignoreChainWithDepth: 3 }], // 链式调用的深度
     'no-plusplus': 0,
     'arrow-parens': [1, 'as-needed'],
@@ -50,6 +51,8 @@ module.exports = {
     // 'import/extensions': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'jsx-a11y/accessible-emoji': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
     // "spaced-comment": "warn",
     // "no-debugger": "warn",
     // "semi": ["warn", "always"],

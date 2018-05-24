@@ -1,4 +1,9 @@
 {
-  "presets": ["env", "react"],
-  "plugins": ["react-hot-loader/babel", "transform-decorators-legacy", "transform-class-properties", ["import", { "libraryName": "antd", "style": "css" }]]
+  "presets": [["env", { "targets": { "browsers": ["defaults", "not ie <= 8"] } }], "react"],
+  "plugins": [
+    "transform-object-assign",
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    ["import", { "libraryName": "antd", "style": "css" }]
+  ]
 }

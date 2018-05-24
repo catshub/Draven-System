@@ -1,0 +1,11 @@
+{
+  "browserSync.config": {
+    "files": ["src/client/**/*.*"],
+    // "watchOptions": {
+    //   "ignoreInitial": true,
+    //   "ignored": ["D:\\University\\graduation-project\\Draven-System\\src"]
+    // },
+    // "ignore": ["D:\\University\\graduation-project\\Draven-System\\src"],
+    "proxy": "localhost:8080"
+  }
+}
