@@ -15,8 +15,7 @@ function getName(Cookie, zjh) {
       response.on('end', () => {
         const reg = /欢迎光临&nbsp;(\S+)&nbsp;\|/;
         const name = reg.exec(scuData)[1];
-        if (/62083/.test(zjh) && /盈/.test(name)) resolve('媳妇儿！');
-        else resolve(name);
+        resolve(name);
       });
     });
     scuReq.setHeader('Cookie', Cookie);
