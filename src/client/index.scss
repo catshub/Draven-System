@@ -84,6 +84,9 @@ $cyan-deep: #42c8de;
 .button-calendar {
   @include button-base($orange, $orange-deep);
 }
+.button-navigator {
+  @include button-base($blue, $blue-deep);
+}
 
 .header .name {
   font-size: 1.6em;

@@ -80,6 +80,21 @@ class Home extends React.Component {
               </a>
             </Col>
           </Row>
+          <Row {...rowConf}>
+            <Divider>小工具</Divider>
+            <Col {...colConf}>
+              <a
+                href="https://greasyfork.org/zh-CN/scripts/48259-使用四川大学教务系统导航栏"
+                title="“使用教务系统导航栏”脚本"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="button-navigator">
+                  <span>⚽</span>导航栏
+                </Button>
+              </a>
+            </Col>
+          </Row>
         </Content>
       </Layout>
     );
