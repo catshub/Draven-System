@@ -33,8 +33,8 @@ class Home extends React.Component {
             <Divider>常用功能</Divider>
             <Col {...colConf}>
               <a href="/draven/grade">
-                <Button /* onClick={() => this.handleClick('grade')} */ disabled={!login} className="button-grade">
-                  <span>📋</span>成绩
+                <Button /* onClick={() => this.handleClick('grade')} */ disabled className="button-grade">
+                  <span>🚫</span><s>成绩</s>
                 </Button>
               </a>
             </Col>
