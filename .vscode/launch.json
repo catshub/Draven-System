@@ -24,6 +24,12 @@
       "request": "launch",
       "name": "启动程序",
       "program": "${workspaceFolder}/src/server/server.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "启动文件",
+      "program": "${file}"
     }
   ]
 }

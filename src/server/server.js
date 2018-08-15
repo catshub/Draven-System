@@ -11,8 +11,8 @@ const calendarFunc = require('./function/calendarFunc');
 
 // Server
 Http.createServer((req, res) => {
-  const origin =
-    process.env.NODE_ENV === 'prod' ? 'http://draven-system.xhuyq.me' : req.headers.origin || 'http://localhost';
+  let origin = config.domain.default;
+  if (process.env.NODE_ENV !== 'prod' || config.domain[req.headers.origin]) origin = req.headers.origin; // eslint-disable-line
   let data = '';
   req.on('data', d => {
     data += d;
