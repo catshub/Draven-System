@@ -10,6 +10,9 @@ module.exports = {
       env: {
         NODE_ENV: 'dev',
       },
+      env_production: {
+        NODE_ENV: 'prod',
+      },
       out_file: path.resolve(__dirname, './logs/draven-out.log'),
       error_file: path.resolve(__dirname, './logs/draven-error.log'),
     },

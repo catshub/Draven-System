@@ -6,7 +6,8 @@
     "start": "npm run dev",
     "dev": "webpack-dev-server --config ./webpack/dev.conf.js --progress",
     "server": "set NODE_ENV=dev&& node ./src/server/server.js",
-    "pm2": "pm2 start ./src/server/pm2.config.js && pm2 logs 0",
+    "pm2-dev": "pm2 start ./src/server/pm2.config.js",
+    "pm2-prod": "pm2 start ./src/server/pm2.config.js --env production",
     "build": "set NODE_ENV=prod&& webpack --config ./webpack/prod.conf.js --progress --hide-modules",
     "precommit": "lint-staged",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular -r 0"
