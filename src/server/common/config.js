@@ -1,6 +1,6 @@
 const jwcHost = '202.115.47.141';
 const devHsot = 'http://localhost';
-const prodHost = '139.199.190.123';
+const prodHost = 'localhost';
 const serverPort = 9000;
 const serverHost = process.env.NODE_ENV === 'prod' ? prodHost : devHsot;
 const domain = {

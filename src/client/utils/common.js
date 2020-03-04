@@ -1,2 +1,2 @@
-const ApiBase = `${window.location.protocol}//${window.location.hostname}:${sessionStorage.port || 9000}`;
+const ApiBase = `${window.location.protocol}//${window.location.hostname}/draven/api`;
 export { ApiBase };

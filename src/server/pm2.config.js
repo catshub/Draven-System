@@ -1,11 +1,12 @@
-const path = require('path');
+const path = require('path')
+const { WEB_ROOT } = process.env
 
 module.exports = {
   apps: [
     {
       name: 'draven',
       script: path.resolve(__dirname, './server.js'),
-      watch: [path.resolve(__dirname)],
+      watch: true,
       ignore_watch: ['**/logs', '**/node_modules'],
       env: {
         NODE_ENV: 'dev',
@@ -13,8 +14,8 @@ module.exports = {
       env_production: {
         NODE_ENV: 'prod',
       },
-      out_file: path.resolve(__dirname, './logs/draven-out.log'),
-      error_file: path.resolve(__dirname, './logs/draven-error.log'),
+      out_file: path.resolve(WEB_ROOT, './logs/draven/out.log'),
+      error_file: path.resolve(WEB_ROOT, './logs/draven/error.log'),
     },
   ],
-};
+}

@@ -12,7 +12,8 @@ const calendarFunc = require('./function/calendarFunc');
 // Server
 Http.createServer((req, res) => {
   let origin = config.domain.default;
-  if (process.env.NODE_ENV !== 'prod' || config.domain[req.headers.origin]) origin = req.headers.origin; // eslint-disable-line
+  // if (process.env.NODE_ENV !== 'prod' || config.domain[req.headers.origin]) origin = req.headers.origin; // eslint-disable-line
+  if (process.env.NODE_ENV !== 'prod' ) origin = req.headers.host; // eslint-disable-line
   let data = '';
   req.on('data', d => {
     data += d;
