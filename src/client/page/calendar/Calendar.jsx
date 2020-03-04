@@ -14,7 +14,7 @@ class Course extends React.Component {
   };
   componentWillMount() {
     const that = this;
-    const loading = message.loading('...', 0);
+    const loading = message.loading('获取校历信息...', 0);
     fetchJSON(`${ApiBase}/calendar`).then(res => that.setState({ list: res.list, now: res.now }, loading));
   }
   handleXlClick = value => {
