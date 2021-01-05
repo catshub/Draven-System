@@ -24,7 +24,7 @@
   "description": "",
   "dependencies": {
     "antd": "^3.2.3",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "chalk": "^2.3.2",
     "cheerio": "^1.0.0-rc.2",
